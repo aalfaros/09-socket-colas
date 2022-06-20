@@ -1,9 +1,9 @@
-const socketController = socket => {
-  console.log('Cliente conectado', socket.id)
+const TicketControl = require('../models/ticket-control')
 
-  socket.on('disconnect', () => {
-    console.log('Cliente desconectado', socket.id)
-  })
+const ticketControl = new TicketControl()
+
+const socketController = socket => {
+  socket.on('disconnect', () => {})
 
   socket.on('enviar-mensaje', (payload, callback) => {
     const id = 123456789
